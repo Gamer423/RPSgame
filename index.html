@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    function getComputerChoice() {
+        let values = ["Rock","Paper","Scissors"],
+            valueToUse = values[Math.floor(Math.random() * values.length)];
+        return valueToUse;
+    }
+
+
+    function playRound(pS, cS) {
+        pS = prompt("What do you choose");
+        cS = getComputerChoice();
+
+        if (pS === cS) {
+            return("It's a tie!");
+        } else if (pS === "Rock" && cS === "Scissors") {
+            return("Player won");
+        } else if (pS === "Rock" && cS === "Paper") {
+            return("Computer won");
+        } else if (pS === "Paper" && cS === "Rock") {
+            return("Player won");
+        } else if (pS === "Paper" && cS === "Scissors") {
+            return("Computer won");
+        } else if (pS === "Scissors" && cS === "Rock") {
+            return("Computer won");
+        } else if (pS === "Scissors" && cS === "Paper") {
+            return("Player won");
+        }
+        return
+    }
+
+    let player = 0;
+    let computer = 0;
+ 
+
+    function playgame() {
+for (let i = 0; i < 9999999; i++) {
+    
+
+        let tulos = playRound();
+
+        if (tulos === "Computer won") {
+            computer += 1;
+        } else if (tulos === "Player won") {
+            player += 1;
+        } else if (tulos === "It's a tie!") {
+            player += 0;
+            computer += 0;
+        }
+        console.log(tulos)
+        console.log(player)
+        console.log(computer)
+        if (player === 5){
+            console.log("player won");
+            break;
+        } else if (computer === 5) {
+            console.log("Computer won");
+            break;
+        }
+}
+
+}
+    </script>
+</body>
+</html>
