@@ -1,0 +1,52 @@
+body {
+    background-color: rgba(105, 184, 129, 0.747);
+}
+
+
+.i {
+text-align: center;
+
+}
+
+.o {
+    text-align: center;
+}
+
+.kys {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    font-size: 50px;
+    font-family: fantasy;
+    gap: 700px;
+    margin-top: 50px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.buttons .btn {
+    background-color: green;
+    color: antiquewhite;
+    padding: 10px;
+    padding-right: 35px;
+    padding-left: 35px;
+
+}
+
+.text {
+    text-align: center;
+    font-family: fantasy;
+    font-size: 50px;
+}
+
+#result {
+    text-align: center;
+    margin-top: 50px;
+    font-family: fantasy;
+    font-size: 25px
+}

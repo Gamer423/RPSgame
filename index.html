@@ -5,9 +5,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="kys">
+
+    <div class="i">
+        <div>Computer</div>
+        <div id="computer">0</div>
+    </div>
+
+    <div class="o">
+        <div>Player</div>
+        <div id="player">0</div>
+    </div>
+
+    </div>
+
+    <h1 class="text">Choose an option</h1>
+
+
+<div class="buttons">
+    <button class="btn" id="rock">Rock</button>
+    <button class="btn" id="paper">Paper</button>
+    <button class="btn" id="scissors">Scissors</button>
+</div>
+    <div id="result"></div>
+
     <script>
+        let playerSelection = '';
+
+        document.getElementById("rock").addEventListener("click", rock);
+        function rock() {
+            playerSelection = "Rock";
+            playgame();
+        }
+
+        document.getElementById("paper").addEventListener("click", paper);
+        function paper() {
+            playerSelection = "Paper";
+            playgame();
+        }
+
+        document.getElementById("scissors").addEventListener("click", scissors);
+        function scissors() {
+            playerSelection = "Scissors";
+            playgame();
+        }
+
+
 
     function getComputerChoice() {
         let values = ["Rock","Paper","Scissors"],
@@ -17,22 +63,21 @@
 
 
     function playRound(pS, cS) {
-        pS = prompt("What do you choose");
         cS = getComputerChoice();
 
-        if (pS === cS) {
+        if (playerSelection === cS) {
             return("It's a tie!");
-        } else if (pS === "Rock" && cS === "Scissors") {
+        } else if (playerSelection === "Rock" && cS === "Scissors") {
             return("Player won");
-        } else if (pS === "Rock" && cS === "Paper") {
+        } else if (playerSelection === "Rock" && cS === "Paper") {
             return("Computer won");
-        } else if (pS === "Paper" && cS === "Rock") {
+        } else if (playerSelection === "Paper" && cS === "Rock") {
             return("Player won");
-        } else if (pS === "Paper" && cS === "Scissors") {
+        } else if (playerSelection === "Paper" && cS === "Scissors") {
             return("Computer won");
-        } else if (pS === "Scissors" && cS === "Rock") {
+        } else if (playerSelection === "Scissors" && cS === "Rock") {
             return("Computer won");
-        } else if (pS === "Scissors" && cS === "Paper") {
+        } else if (playerSelection === "Scissors" && cS === "Paper") {
             return("Player won");
         }
         return
@@ -40,35 +85,37 @@
 
     let player = 0;
     let computer = 0;
+    let voitto = '';
  
 
-    function playgame() {
-for (let i = 0; i < 9999999; i++) {
-    
+function playgame() {
+        let result = playRound();
 
-        let tulos = playRound();
-
-        if (tulos === "Computer won") {
+        if (result === "Computer won") {
             computer += 1;
-        } else if (tulos === "Player won") {
+        } else if (result === "Player won") {
             player += 1;
-        } else if (tulos === "It's a tie!") {
+        } else if (result === "It's a tie!") {
             player += 0;
             computer += 0;
         }
-        console.log(tulos)
-        console.log(player)
-        console.log(computer)
-        if (player === 5){
-            console.log("player won");
-            break;
+
+        if (player === 5) {
+            result = voitto = "PLAYER WINS THE MATCH!!!";
+            computer = 0;
+            player = 0;
         } else if (computer === 5) {
-            console.log("Computer won");
-            break;
+            result = voitto = "COMPUTER WINS THE MATCH!!!";
+            computer = 0;
+            player = 0;
         }
-}
+        document.getElementById("result").innerHTML = result;
+        document.getElementById("player").innerHTML = player;
+        document.getElementById("computer").innerHTML = computer;
+        
 
 }
+
     </script>
 </body>
 </html>
